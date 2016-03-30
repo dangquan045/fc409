@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="utf-8" />
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="HandheldFriendly" content="True" />
+	<meta name="MobileOptimized" content="320" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<title>NEXVEL</title>
+	<meta name="description" content=" " />
+	<meta name="keywords" content=" " />
+	<link rel="stylesheet" href="css/style.css" media="screen" />
+	<style type="text/css">
+		
+#wrapp:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+#wrapp {
+  width: 450px;
+  margin: 30px auto;
+  border: 1px solid #BBB;
+  border-radius: 25px;
+  height: 50px;
+  position: relative;
+}
+#wrapp .item {
+  float: left;
+  width: 33.3333%;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  /*margin: -1px;*/
+  -webkit-transition: all ease-in-out 0.5s;
+  transition: all ease-in-out 0.5s;
+}
+#wrapp .item.active {
+	color: green;
+}
+#slide {
+  border: 1px solid green;
+  height: 100%;
+  width: 33.3333%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 25px;
+  z-index: -1;
+}
+	</style>
+	<!--[if IE]>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta http-equiv="cleartype" content="on" />
+	<![endif]-->
+	<!--[if lt IE 9]>
+		<script src="/js/shiv_trunk_html5.js"></script>
+		<script src="/js/IE9.js"></script>
+		<script src="/js/respond.min.js"></script>
+	<![endif]-->
+	<script src="js/jquery.min.js"></script>
+	<script type="text/javascript">
+	$(function(){
+		$('.item').click(function(){
+			$('.item').removeClass('active');
+   
+		    var left = $(this).position().left;
+		    
+		    $('#slide').stop().animate({'left' : left});
+		    $(this).addClass('active');
+		});
+	});
+	</script>
+</head>
+<body>
+	
+		<div id="wrapp">
+		  <div class="item active">MENU 1</div>
+		  <div class="item">MENU 2</div>
+		  <div class="item">MENU 3</div>
+		  <div id="slide"></div>
+		</div>
+</body>
+</html>
